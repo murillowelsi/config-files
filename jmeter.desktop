@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=JMeter
+Icon=/home/murillo/Documents/JMeter/docs/images/favicon.png
+Path=/home/murillo/Documents/JMeter
+Exec=/home/murillo/Documents/JMeter/bin/jmeter.sh
+StartupNotify=false
+StartupWMClass=jmeter
+OnlyShowIn=Unity;GNOME;
+X-UnityGenerated=true
