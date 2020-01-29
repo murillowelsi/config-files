@@ -4,53 +4,157 @@
 
 sudo rm /var/lib/dpkg/lock-frontend ; sudo rm /var/cache/apt/archives/lock ;
 
-## Atualizando o repositório ##
+echo "==========================================================
 
-sudo apt update && 
+           INSTALAÇÃO DE PACOTES DO VAGABUNDO
 
-## Instalando pacotes e programas do repositório deb do Ubuntu ##
+=========================================================="
 
-sudo apt install python3 python-pip wine nautilus-dropbox docker docker-compose git build-essential libssl-dev flatpak gnome-software-plugin-flatpak -y &&
+# Atualizar Pacotes
+echo "==========================================================
 
-## Instalando pacotes Snap ##
+        	ATUALIZANDO PACOTES
 
-sudo snap install slack --classic &&  
-sudo snap install skype --classic &&  
-sudo snap install code --classic &&  
-sudo snap install --edge node --classic && 
-sudo snap install insomnia &&  
-sudo snap install spotify &&
-sudo snap install wps-office-multilang && 
+=========================================================="
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt autoremove -y
 
-## Adicionando repositório Flathub ##
+# Snap
+echo "==========================================================
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo && 
+        	INSTALANDO SNAP
 
-## Instalando Apps do Flathub ##
+=========================================================="
+sudo apt update
+sudo apt install snapd
 
-sudo flatpak install flathub com.obsproject.Studio -y &&
-sudo flatpak install flathub com.sublimetext.three -y &&
-sudo flatpak install flathub io.dbeaver.DBeaverCommunity -y &&
- 
+# CURL
+echo "==========================================================
 
-## Softwares que precisam de download externo ##
+        	INSTALANDO CURL
 
-cd ~/Downloads/ && wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i *.deb && wget -c https://uploads.treeunfe.me/downloads/instalar-freenfe.exe &&
+=========================================================="
+sudo apt-get install curl -y
 
-##Softwares alternativos Windows##
+# Google Chrome
+echo "==========================================================
 
-##GIMP e PhotoGIMP
-flatpak install flathub org.gimp.GIMP -y && wget -c https://doc-0s-1g-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/0v83rmt4mij9897co9ufvor2r1jcj1am/1567965600000/07452089978596344616/*/12i-ihCDSZelx30-oNHJaKAzUei1etsbS?e=download && unzip 12i-ihCDSZelx30-oNHJaKAzUei1etsbS?e=download && cd "PHOTOGIMP V2018 - DIOLINUX" && cd "PATCH" && mkdir -p /home/$USER/.var/app/org.gimp.GIMP/config/GIMP/2.10/ && cp -R * /home/$USER/.var/app/org.gimp.GIMP/config/GIMP/2.10/ &&
+        	INSTALANDO O GOOGLE CHROME
 
-## Wine softwares ###
-## wget -c https://uploads.treeunfe.me/downloads/instalar-freenfe.exe
+=========================================================="
+cd ~/Downloads/ && wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i *.deb 
 
-wine instalar-freenfe.exe ;
+# VsCode
+echo "==========================================================
+
+        	INSTALANDO O VSCODE
+
+=========================================================="
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo apt-get update
+sudo apt-get install code
+
+# Git
+echo "==========================================================
+
+        	INSTALANDO O GIT
+
+=========================================================="
+sudo apt update
+sudo apt install git -y
+
+# Docker via Snap
+echo "==========================================================
+
+        	INSTALANDO O DOCKER VIA SNAP
+
+=========================================================="
+sudo snap install docker
+
+# Yarn
+echo "==========================================================
+
+        	INSTALANDO O YARN
+
+=========================================================="
+sudo apt-get install gcc g++ make
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install yarn -y
+
+# Ruby
+echo "==========================================================
+
+        	INSTALANDO O RUBY
+
+=========================================================="
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+sudo apt-get update
+sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn -y
+
+cd
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
+
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+rbenv install 2.6.5
+rbenv global 2.6.5
+ruby -v
+
+gem install bundler
+
+# Stremio
+echo "==========================================================
+
+        	INSTALANDO O STREMIO
+
+=========================================================="
+cd ~/Downloads
+sudo wget https://dl.strem.io/linux/v4.4.54/stremio_4.4.52-1_amd64.deb
+sudo chmod 777 stremio_4.4.52-1_amd64.deb
+sudo dpkg -i stremio_4.4.52-1_amd64.deb
+sudo apt --fix-broken install -y
+
+# Slack
+echo "==========================================================
+
+        	INSTALANDO O SLACK
+
+=========================================================="
+cd ~/Downloads
+sudo wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.2.0-amd64.deb
+sudo chmod 777 slack-desktop-4.2.0-amd64.deb
+sudo dpkg -i slack-desktop-4.2.0-amd64.deb
+sudo apt --fix-broken install -y
+
+# Spotify
+echo "==========================================================
+
+        	INSTALANDO O SPOTIFY
+
+=========================================================="
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update && sudo apt-get install spotify-client -y
+sudo apt --fix-broken install -y
+
+# Finalizando
+echo "==========================================================
+
+        	FINALIZANDO INSTALAÇÕES
+
+=========================================================="
 
 ## Atualização do sistema ##
 
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y &&
-
-#Fim do Script ##
-
-echo "Finalizado"
