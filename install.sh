@@ -6,7 +6,7 @@ sudo rm /var/lib/dpkg/lock-frontend ; sudo rm /var/cache/apt/archives/lock ;
 
 echo "==========================================================
 
-           INSTALAÇÃO DE PACOTES DO VAGABUNDO
+           INSTALAÇÃO DE PACOTES DO UBUNTU
 
 =========================================================="
 
