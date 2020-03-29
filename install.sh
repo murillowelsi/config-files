@@ -60,6 +60,8 @@ echo "==========================================================
 =========================================================="
 sudo apt update
 sudo apt install git -y
+git config --global user.email "murillo.welsi@gmail.com"
+git config --global user.name "Murillo Welsi"
 
 # Docker via Snap
 echo "==========================================================
@@ -198,3 +200,4 @@ sudo apt-get update
 sudo apt-get upgrade -y 
 sudo apt-get autoremove -y
 Sudo reboot
+
