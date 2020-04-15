@@ -2,7 +2,7 @@
 
 echo "==========================================================
 
-                QA NOTEBOOK SETUP
+                NOTEBOOK MURILLO SETUP
 
 =========================================================="
 
@@ -14,6 +14,7 @@ echo "==========================================================
 =========================================================="
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt autoremove -y
+sudo apt install gnome-tweaks gnome-shell-extensions
 
 # Snap
 echo "==========================================================
@@ -60,8 +61,6 @@ echo "==========================================================
 =========================================================="
 sudo apt update
 sudo apt install git -y
-git config --global user.email "murillo.welsi@gmail.com"
-git config --global user.name "Murillo Welsi"
 
 # Docker via Snap
 echo "==========================================================
@@ -141,6 +140,8 @@ sudo pip -V
 pip3 install robotframework
 pip3 install robotframework-seleniumlibrary
 pip3 install robotframework-databaselibrary
+pip3 install robotframework-appiumlibrary
+pip3 install robotframework-requests
 
 # Chromedriver
 echo "==========================================================
@@ -200,4 +201,3 @@ sudo apt-get update
 sudo apt-get upgrade -y 
 sudo apt-get autoremove -y
 Sudo reboot
-
