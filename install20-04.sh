@@ -2,7 +2,7 @@
 
 echo "==========================================================
 
-                NOTEBOOK MURILLO SETUP
+                NOTEBOOK MURILLO SETUP UBUNTU 20.04
 
 =========================================================="
 
@@ -52,7 +52,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo apt-get update
-sudo apt-get install code
+sudo apt-get install code -y
 
 # Git
 echo "==========================================================
@@ -69,13 +69,7 @@ echo "==========================================================
         	INSTALANDO O DOCKER
 
 =========================================================="
-
-sudo apt install docker.io
-sudo systemctl enable --now docker
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker 
-docker --version
+sudo apt install docker.io -y
 
 # Yarn
 echo "==========================================================
@@ -83,7 +77,7 @@ echo "==========================================================
         	INSTALANDO O YARN
 
 =========================================================="
-sudo apt-get install gcc g++ make
+sudo apt-get install gcc g++ make -y
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install yarn -y
@@ -128,7 +122,7 @@ echo "==========================================================
         	INSTALANDO O PIP
 
 =========================================================="
-sudo apt install python3-pip3 -y 
+sudo apt install python3-pip -y 
 sudo pip -V 
 pip3 install robotframework
 pip3 install robotframework-seleniumlibrary
@@ -181,7 +175,7 @@ echo "==========================================================
 =========================================================="
 wget -O- https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 sudo add-apt-repository "deb http://repository.spotify.com stable non-free"
-sudo apt install spotify-client
+sudo apt install spotify-client -y
 
 sudo apt --fix-broken install -y
 
@@ -191,6 +185,8 @@ echo "==========================================================
         	FINALIZANDO INSTALAÇÕES
 
 =========================================================="
+sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64  -O /usr/local/bin/ctop 
+sudo chmod +x /usr/local/bin/ctop
 sudo apt-get update
 sudo apt-get upgrade -y 
 sudo apt-get autoremove -y
