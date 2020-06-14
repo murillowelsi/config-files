@@ -137,7 +137,7 @@ echo "==========================================================
 
 =========================================================="
 cd ~/Downloads/
-wget https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip
+wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
 sudo unzip chromedriver_linux64.zip
 sudo mv chromedriver /usr/bin/chromedriver
 sudo chown root:root /usr/bin/chromedriver
