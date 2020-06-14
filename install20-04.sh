@@ -147,7 +147,7 @@ chromedriver --version
 #Geckodriver
 echo "==========================================================
 
-        	INSTALANDO O CHROMEDRIVER
+        	INSTALANDO O GEKODRIVER
 
 =========================================================="
 cd ~/Downloads/
