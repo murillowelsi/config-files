@@ -167,6 +167,11 @@ sudo chmod 777 stremio_4.4.52-1_amd64.deb
 sudo dpkg -i stremio_4.4.52-1_amd64.deb
 sudo apt --fix-broken install -y
 
+# Para resolver problema de instalação no Pop_Os!
+wget http://archive.ubuntu.com/ubuntu/pool/universe/x/x264/libx264-152_0.152.2854+gite9a5903-2_amd64.deb
+
+sudo dpkg -i libx264-152_0.152.2854+gite9a5903-2_amd64.deb
+
 # Spotify
 echo "==========================================================
 
