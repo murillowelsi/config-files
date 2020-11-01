@@ -195,4 +195,4 @@ sudo chmod +x /usr/local/bin/ctop
 sudo apt-get update
 sudo apt-get upgrade -y 
 sudo apt-get autoremove -y
-Sudo reboot
+sudo reboot
