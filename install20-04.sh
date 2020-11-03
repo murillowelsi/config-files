@@ -16,6 +16,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt autoremove -y
 sudo apt install gnome-tweaks gnome-shell-extensions -y
 sudo apt install flameshot -y
+setxkbmap -model abnt -layout us -variant intl
 
 # Snap
 echo "==========================================================
