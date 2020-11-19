@@ -197,3 +197,16 @@ sudo apt-get update
 sudo apt-get upgrade -y 
 sudo apt-get autoremove -y
 sudo reboot
+
+# 1. Edite configuration files:
+# sudo vim /usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules.cache
+
+# Procure pela linha, nos dois arquivos: "cedilla" "Cedilla" and add :en to the line. Vai ser algo como:
+# "cedilla" "Cedilla" "gtk30" "/usr/share/locale" "az:ca:co:fr:gv:oc:pt:sq:tr:wa:en"
+
+# 2. Mude o Compose file:
+# sudo sed -i /usr/share/X11/locale/en_US.UTF-8/Compose -e 's/ć/ç/g' -e 's/Ć/Ç/g'
+
+# 3. Adiciona isso em /etc/environment:
+# GTK_IM_MODULE=cedilla
+# QT_IM_MODULE=cedilla
